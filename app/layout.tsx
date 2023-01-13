@@ -13,7 +13,18 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <div className="flex flex-col bg-gray-100 min-h-screen">{children}</div>
+        <div className="flex flex-col bg-gray-100 min-h-screen">
+          {children}
+          <footer className="flex">
+            <div className="container mx-auto">
+              <div className="flex justify-center border-t py-4">
+                <div className="inline-block align-middle text-lg">
+                  © 2023 Kelompok Algoritma
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
       </body>
     </html>
   );

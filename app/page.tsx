@@ -85,13 +85,13 @@ export default function Page() {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-col space-y-2 text-center py-16">
+    <div className="container mx-auto flex-grow">
+      <div className="flex flex-col space-y-2 text-center py-8 lg:py-16">
         <h1 className="text-4xl font-bold">Bubble Short Algorithm Analysis</h1>
         <h3 className="text-2xl">With Implementation Using Javascript.</h3>
       </div>
-      <div className="flex mt-4 space-x-4">
-        <div className="w-2/5">
+      <div className="flex flex-col lg:flex-row mt-4 space-y-4 lg:space-y-0 lg:space-x-4">
+        <div className="lg:w-2/5">
           <div className="bg-white shadow rounded-md flex flex-col p-4">
             <div className="flex flex-col space-y-4">
               <h5 className="text-center text-lg">Insert Data</h5>
@@ -125,9 +125,10 @@ export default function Page() {
                 <textarea
                   id="name"
                   ref={inputData}
-                  className="rounded-md px-4 py-2 bg-gray-50 border border-gray-200"
-                  placeholder="JSON array data. Example : "
-                  rows={10}
+                  className="rounded-md px-4 py-2 bg-gray-50 border border-gray-200 h-28 lg:h-48"
+                  placeholder={
+                    `JSON array data. Example : ` + JSON.stringify(example)
+                  }
                 ></textarea>
               </div>
 
@@ -143,7 +144,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="w-3/5">
+        <div className="lg:w-3/5">
           <Tab.Group>
             <Tab.List className="flex space-x-4">
               <Tab
@@ -191,6 +192,11 @@ export default function Page() {
                   )}
                 </div>
                 <div className="flex flex-col space-y-4">
+                  {result.length === 0 && (
+                    <div className="text-center text-gray-500 py-32">
+                      No result yet
+                    </div>
+                  )}
                   {result.map((item, index) => {
                     return (
                       <div key={index} className="flex flex-col space-y-2">
