@@ -5,7 +5,7 @@ export default function Head() {
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta
         name="description"
-        content="Web application for bubble short algorithm analysis by Kelompok Alpha."
+        content="Web application for bubble short algorithm analysis by Alpha Group."
       />
       <meta
         property="og:title"
@@ -13,7 +13,7 @@ export default function Head() {
       />
       <meta
         property="og:description"
-        content="Web application for bubble short algorithm analysis by Kelompok Alpha."
+        content="Web application for bubble short algorithm analysis by Alpha Group."
       />
       <link rel="icon" href="/favicon.ico" />
     </>

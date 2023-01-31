@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import {IoAnalytics, IoApps, IoClipboard, IoPlay} from 'react-icons/io5';
 
 const example: number[][] = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -63,7 +64,7 @@ export default function Page() {
           const start = performance.now();
           const data = bubbleShort(item);
           const end = performance.now();
-          const time = Math.round(end - start);
+          const time = Math.round((end - start + Number.EPSILON) * 100) / 100;
           const size = item.length;
 
           setResult((prev) => {
@@ -85,14 +86,14 @@ export default function Page() {
   };
 
   return (
-    <div className="container mx-auto flex-grow">
+    <div className="container mx-auto flex-grow mb-4">
       <div className="flex flex-col space-y-2 text-center py-8 lg:py-16">
         <h1 className="text-4xl font-bold">Bubble Short Algorithm Analysis</h1>
         <h3 className="text-2xl">With Implementation Using Javascript.</h3>
       </div>
       <div className="flex flex-col lg:flex-row mt-4 space-y-4 lg:space-y-0 lg:space-x-4">
         <div className="lg:w-2/5">
-          <div className="bg-white shadow rounded-md flex flex-col p-4">
+          <div className="bg-white shadow rounded-none md:rounded-md flex flex-col p-4">
             <div className="flex flex-col space-y-4">
               <h5 className="text-center text-lg">Insert Data</h5>
 
@@ -134,10 +135,10 @@ export default function Page() {
 
               <div className="flex justify-center">
                 <button
-                  className="bg-blue-500 hover:bg-blue-400 text-white rounded-md px-16 py-2"
+                  className="flex bg-blue-500 hover:bg-blue-400 text-white rounded-md px-16 py-2"
                   onClick={runShorting}
                 >
-                  Run
+                  <IoPlay className="my-auto mr-2"/> Run
                 </button>
               </div>
             </div>
@@ -151,29 +152,29 @@ export default function Page() {
                 key="result"
                 className={({ selected }) => {
                   return (
-                    "flex-1 p-4 rounded-md text-lg " +
+                    "flex-1 flex p-4 rounded-md text-lg " +
                     (selected ? "bg-white shadow" : "border-2")
                   );
                 }}
               >
-                Result
+                <IoApps className="my-auto mr-2"/> Result
               </Tab>
               <Tab
                 key="chart"
                 className={({ selected }) => {
                   return (
-                    "flex-1 p-4 rounded-md text-lg " +
+                    "flex-1 flex p-4 rounded-md text-lg " +
                     (selected ? "bg-white shadow" : "border-2")
                   );
                 }}
               >
-                Chart
+                <IoAnalytics className="my-auto mr-2"/> Chart
               </Tab>
             </Tab.List>
             <Tab.Panels className="mt-4">
               <Tab.Panel
                 key="result"
-                className="flex flex-col bg-white rounded-md shadow p-4 space-y-4"
+                className="flex flex-col bg-white rounded-none md:rounded-md shadow p-4 space-y-4"
               >
                 <div className="flex justify-between">
                   <div className="inline-block align-middle text-lg">
@@ -211,6 +212,22 @@ export default function Page() {
                             </span>
                           </Disclosure.Button>
                           <Disclosure.Panel className="block text-gray-500 bg-gray-50 p-4 border rounded-md">
+                            <div className="flex justify-between mb-2">
+                              <div className="inline-block align-middle text-lg">
+                                Result
+                              </div>
+                              <button
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    JSON.stringify(item.data)
+                                  );
+                                  alert("Copied to clipboard");
+                                }}
+                                className="bg-blue-500 hover:bg-blue-400 text-white rounded-md px-4 py-2 text-sm"
+                              >
+                                <IoClipboard/>
+                              </button>
+                            </div>
                             <p className="text-ellipsis overflow-hidden">
                               {JSON.stringify(item.data)}
                             </p>
