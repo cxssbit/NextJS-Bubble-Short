@@ -88,7 +88,7 @@ export default function Page() {
   return (
     <div className="container mx-auto flex-grow mb-4">
       <div className="flex flex-col space-y-2 text-center py-8 lg:py-16">
-        <h1 className="text-4xl font-bold">Bubble Short Algorithm Analysis</h1>
+        <h1 className="text-4xl font-bold">Bubble Sort Algorithm Analysis</h1>
         <h3 className="text-2xl">With Implementation Using Javascript.</h3>
       </div>
       <div className="flex flex-col lg:flex-row mt-4 space-y-4 lg:space-y-0 lg:space-x-4">
