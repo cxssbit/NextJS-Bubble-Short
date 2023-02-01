@@ -5,15 +5,15 @@ export default function Head() {
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta
         name="description"
-        content="Web application for bubble short algorithm analysis by Alpha Group."
+        content="Web application for bubble sort algorithm analysis by Alpha Group."
       />
       <meta
         property="og:title"
-        content="NextJS Bubble Short"
+        content="NextJS Bubble Sort"
       />
       <meta
         property="og:description"
-        content="Web application for bubble short algorithm analysis by Alpha Group."
+        content="Web application for bubble sort algorithm analysis by Alpha Group."
       />
       <link rel="icon" href="/favicon.ico" />
     </>
