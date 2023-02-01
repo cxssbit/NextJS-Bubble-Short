@@ -1,7 +1,7 @@
 export default function Head() {
   return (
     <>
-      <title>NextJS Bubble Short</title>
+      <title>NextJS Bubble Sort</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta
         name="description"
